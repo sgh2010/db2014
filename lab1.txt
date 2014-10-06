@@ -1,15 +1,14 @@
 $ isql.exe
-создаем базу данных
 > create database 'tiger.ftk.spbstu.ru:/var/lib/firebird/435011/musicdb.fdb'
 >	user 'SYSDBA' password 'masterkey';
 > commit;
-подключаемся к базе данных
+
 > connect 'tiger.ftk.spbstu.ru:/var/lib/firebird/435011/musicdb.fdb'
 >	user 'SYSDBA' password 'masterkey';
-создаем master-таблицу с 2 атрибутами
+
 > create table artists (art_id int primary key not null, 
 > 			artist varchar(25) not null);
-создаем slave-таблицу с 7 атрибутами
+
 > create table albums ( alb_id int primary key not null,
 >			album varchar(25) not null,
 >			artist int referneces artists(art_id),
@@ -17,13 +16,13 @@ $ isql.exe
 >			genre varchar(25),
 >			label varchar(25),
 >			rating int);
-заполняем master-таблицу данными
+
 > insert into artists values (1, "Pantera");
 > insert into artists values (2, "Slayer");
 > insert into artists values (3, "Frank Sinatra");
 > insert into artists values (4, "Ice Cube");
 > insert into artists values (5, "Johnny Cash");
-заполняем slave-таблицу данными
+
 > insert into albums values (1, "Cowboys from Hell", 1, 1990, 
 >				"Pop/Rock", "Atco", 5);
 > insert into albums values (2, "Vulgar Display of Power", 1, 1992, 
