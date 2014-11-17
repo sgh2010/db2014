@@ -1,0 +1,48 @@
+create database 'tiger.ftk.spbstu.ru:/var/lib/firebird/435011/musicdb.fdb'
+	user 'SYSDBA' password 'masterkey';
+commit;
+
+connect 'tiger.ftk.spbstu.ru:/var/lib/firebird/435011/musicdb.fdb'
+	user 'SYSDBA' password 'masterkey';
+
+create table artists (art_id int primary key not null, 
+			artist varchar(25) not null);
+
+create table albums ( alb_id int primary key not null,
+			album varchar(25) not null,
+			artist int referneces artists(art_id),
+			release_year int,
+			genre varchar(25),
+			label varchar(25),
+			rating int);
+
+insert into artists values (1, "Pantera");
+insert into artists values (2, "Slayer");
+insert into artists values (3, "Frank Sinatra");
+insert into artists values (4, "Ice Cube");
+insert into artists values (5, "Johnny Cash");
+
+insert into albums values (1, "Cowboys from Hell", 1, 1990, 
+				"Pop/Rock", "Atco", 5);
+insert into albums values (2, "Vulgar Display of Power", 1, 1992, 
+				"Pop/Rock", "Atco/EastWest", 5);
+insert into albums values (3, "Far Beyond Driven", 1, 1994, 
+				"Pop/Rock", "EastWest", 4);
+insert into albums values (4, "Hell Awaits", 2, 1985, 
+				"Pop/Rock", "Metal Blade", 4);
+insert into albums values (5, "Reign in Blood", 2, 1986, 
+				"Pop/Rock", "American", 5);
+insert into albums values (6, "World Painted Blood", 2, 2009, 
+				"Pop/Rock", "American", 4);
+insert into albums values (7, "Swing Easy!", 3, 1954, 
+				"Jazz", "Capitol", 4);
+insert into albums values (8, "The Voice", 3, 1955, 
+				"Jazz", "Balboa Rec. Corp.", 4);
+insert into albums values (9, "Raw Footage", 4, 2008, 
+				"Rap", "Lench Mob", 3);
+insert into albums values (10, "I am the West", 4, 2010, 
+				"Rap", "Lench Mob", 4);
+insert into albums values (11, "Songs of Our Soil", 5, 1959, 
+				"Country", "Sony BMG", 4);
+insert into albums values (12, "Ride This Train", 5, 1960, 
+				"Country", "Legacy/Columbia", 5);
