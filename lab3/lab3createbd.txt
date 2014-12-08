@@ -1,0 +1,41 @@
+create table artists (art_id int primary key not null,
+			artist varchar(25) not null);
+
+create table cds (code int primary key not null, release_year int, sold int);
+
+create table studios (st_id int primary key not null,
+			title varchar(25) not null,
+			country varchar(25));
+
+create table albums (alb_id int primary key not null,
+			album varchar(35) not null,
+			release_year int,
+			genre varchar(25),
+			label varchar(25),
+			rating int,
+			num_of_rat int,
+			st_id int references studios(st_id),
+			type varchar(25));
+
+create table art_alb (art_id int references artists(art_id) not null,
+			alb_id int references albums(alb_id) not null);
+alter table art_alb add constraint aa_pk primary key (art_id, alb_id);
+
+create table cds_alb (code int references cds(code) not null,
+			alb_id int references albums(alb_id) not null);
+alter table cds_alb add constraint ca_pk primary key (code, alb_id);
+
+create table tracks (tr_id int primary key not null,
+			title varchar(25) not null,
+			duration time);
+
+create table playlists (name varchar(25) primary key not null,
+			date_of_cr date);
+
+create table pl_tr (name varchar(25) references playlists(name) not null,
+			tr_id int references tracks(tr_id) not null);
+alter table pl_tr add constraint p_pk primary key (name, tr_id);
+
+create table tracklists (alb_id int references albums(alb_id) not null,
+			tr_id int references tracks(tr_id) not null);
+alter table tracklists add constraint t_pk primary key (alb_id, tr_id);

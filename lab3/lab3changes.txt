@@ -1,0 +1,27 @@
+create table genres (gen_id int primary key not null,
+			genre varchar(25) not null);
+insert into genres values (1, 'Rock');
+insert into genres values (2, 'Rap');
+insert into genres values (3, 'Jazz');
+insert into genres values (4, 'Classic');
+
+alter table albums drop genre;
+commit;
+alter table albums add genre int references genres(gen_id);
+
+update albums set genre = 1 where alb_id = 1;
+update albums set genre = 1 where alb_id = 2;
+update albums set genre = 1 where alb_id = 3;
+update albums set genre = 1 where alb_id = 4;
+update albums set genre = 2 where alb_id = 5;
+
+create table statuses (stat_id int primary key not null,
+			status varchar(25));
+insert into statuses values (1, 'Gold');
+insert into statuses values (2, 'Platinum');
+insert into statuses values (3, 'Diamond');
+commit;
+alter table cds add status int references statuses(stat_id);
+update cds set status = 1 where (sold >= 500000) and (sold < 1000000);
+update cds set status = 2 where (sold >= 1000000) and (sold < 10000000);
+update cds set status = 3 where (sold >= 10000000);

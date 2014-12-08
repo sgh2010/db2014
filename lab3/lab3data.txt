@@ -1,0 +1,168 @@
+insert into artists values (1, 'Pantera');
+insert into artists values (2, 'Amorphis');
+insert into artists values (3, 'Slayer');
+insert into artists values (4, 'Ice Cube');
+
+insert into cds values (679137227, 1990, 100000000);
+insert into cds values (781676650, 2000, 10000000);
+insert into cds values (329751487, 1986, 200000000);
+insert into cds values (105520746, 2013, 170000000);
+
+insert into studios values (1, 'Pantego Sound Studios', 'USA');
+insert into studios values (2, 'Sunlight Studios', 'Sweden');
+insert into studios values (3, 'Hit City West', 'USA');
+insert into studios values (4, 'Death Row Studio', 'USA');
+
+insert into albums values (1, 'Cowboys from Hell', 1990, 
+				'Rock', 'Atco', 5, 54, 1, 'album');
+insert into albums values (2, 'Tales From The Thousand Lakes', 1994, 
+				'Rock', 'Relapse', 4, 37, 2, 'album');
+insert into albums values (3, 'Black Winter Day', 1994, 
+				'Rock', 'Relapse', 4, 23, 2, 'EP');
+insert into albums values (4, 'Reign In Blood', 1986, 
+				'Rock', 'Def Jam Recordings', 5, 78, 3, 'album');
+insert into albums values (5, 'Icon', 2013, 
+				'Rap', 'Priority Records', 3, 48, 4, 'compilation');
+
+insert into cds_alb values (679137227, 1);
+insert into cds_alb values (781676650, 2);
+insert into cds_alb values (781676650, 3);
+insert into cds_alb values (329751487, 4);
+insert into cds_alb values (105520746, 5);
+
+insert into art_alb values (1, 1);
+insert into art_alb values (2, 2);
+insert into art_alb values (2, 3);
+insert into art_alb values (3, 4);
+insert into art_alb values (4, 5);
+
+insert into tracks values (1, 'Cowboys From Hell', '00:04:07');
+insert into tracks values (2, 'Primal Concrete Sledge', '00:02:13');
+insert into tracks values (3, 'Psycho Holiday', '00:05:19');
+insert into tracks values (4, 'Heresy', '00:04:46');
+insert into tracks values (5, 'Cemetary Gates', '00:07:02');
+insert into tracks values (6, 'Domination', '00:05:04');
+insert into tracks values (7, 'Shattered', '00:03:21');
+insert into tracks values (8, 'Clash With Reality', '00:05:16');
+insert into tracks values (9, 'Medicine Man', '00:05:14');
+insert into tracks values (10, 'Message In Blood', '00:05:10');
+insert into tracks values (11, 'The Sleep', '00:05:47');
+insert into tracks values (12, 'The Art Of Shredding', '00:04:20');
+
+insert into tracks values (21, 'Thousand Lakes', '00:02:03');
+insert into tracks values (22, 'Into Hiding', '00:03:46');
+insert into tracks values (23, 'The Castaway', '00:05:33');
+insert into tracks values (24, 'First Doom', '00:03:52');
+insert into tracks values (25, 'Black Winter Day', '00:03:51');
+insert into tracks values (26, 'Drowned Maid', '00:04:23');
+insert into tracks values (27, 'In The Beginning', '00:03:38');
+insert into tracks values (28, 'Forgotten Sunrise', '00:04:54');
+insert into tracks values (29, 'To Fathers Cabin', '00:03:50');
+insert into tracks values (30, 'Magic And Mayhem', '00:04:28');
+
+insert into tracks values (32, 'Folk Of The North', '00:01:20');
+insert into tracks values (33, 'Moon And Sun', '00:03:36');
+insert into tracks values (34, 'Moon And Sun Part II', '00:05:10');
+
+insert into tracks values (35, 'Angel Of Death', '00:04:51');
+insert into tracks values (36, 'Piece By Piece', '00:02:02');
+insert into tracks values (37, 'Necrophobic', '00:01:40');
+insert into tracks values (38, 'Altar Of Sacrifice', '00:02:50');
+insert into tracks values (39, 'Jesus Saves', '00:02:54');
+insert into tracks values (40, 'Criminally Insane', '00:02:23');
+insert into tracks values (41, 'Reborn', '00:02:11');
+insert into tracks values (42, 'Epidemic', '00:02:23');
+insert into tracks values (43, 'Postmortem', '00:02:44');
+insert into tracks values (44, 'Raining Blood', '00:04:57');
+
+insert into tracks values (45, 'Amerikkas Most Wanted', '00:04:08');
+insert into tracks values (46, 'Check Yo Self', '00:04:16');
+insert into tracks values (47, 'It Was A Good Day', '00:04:20');
+insert into tracks values (48, 'Wicked', '00:03:56');
+insert into tracks values (49, 'Pushin Weight', '00:04:35');
+insert into tracks values (50, 'You Know How We Do It', '00:03:53');
+insert into tracks values (51, 'Steady Mobbin', '00:04:10');
+insert into tracks values (52, 'You Can Do It', '00:04:19');
+insert into tracks values (53, 'Really Doe', '00:04:28');
+insert into tracks values (54, 'Bop Gun (One Nation)', '00:04:47');
+insert into tracks values (55, 'What Can I Do?', '00:04:26');
+
+insert into tracklists values (1, 1);
+insert into tracklists values (1, 2);
+insert into tracklists values (1, 3);
+insert into tracklists values (1, 4);
+insert into tracklists values (1, 5);
+insert into tracklists values (1, 6);
+insert into tracklists values (1, 7);
+insert into tracklists values (1, 8);
+insert into tracklists values (1, 9);
+insert into tracklists values (1, 10);
+insert into tracklists values (1, 11);
+insert into tracklists values (1, 12);
+
+insert into tracklists values (2, 21);
+insert into tracklists values (2, 22);
+insert into tracklists values (2, 23);
+insert into tracklists values (2, 24);
+insert into tracklists values (2, 25);
+insert into tracklists values (2, 26);
+insert into tracklists values (2, 27);
+insert into tracklists values (2, 28);
+insert into tracklists values (2, 29);
+insert into tracklists values (2, 30);
+
+insert into tracklists values (3, 25);
+insert into tracklists values (3, 32);
+insert into tracklists values (3, 33);
+insert into tracklists values (3, 34);
+
+insert into tracklists values (4, 35);
+insert into tracklists values (4, 36);
+insert into tracklists values (4, 37);
+insert into tracklists values (4, 38);
+insert into tracklists values (4, 39);
+insert into tracklists values (4, 40);
+insert into tracklists values (4, 41);
+insert into tracklists values (4, 42);
+insert into tracklists values (4, 43);
+insert into tracklists values (4, 44);
+
+insert into tracklists values (5, 45);
+insert into tracklists values (5, 46);
+insert into tracklists values (5, 47);
+insert into tracklists values (5, 48);
+insert into tracklists values (5, 49);
+insert into tracklists values (5, 50);
+insert into tracklists values (5, 51);
+insert into tracklists values (5, 52);
+insert into tracklists values (5, 53);
+insert into tracklists values (5, 54);
+
+insert into playlists values ('list1', '01-09-2013');
+insert into playlists values ('mp3', '05-13-2012');
+insert into playlists values ('list2', '03-21-2014');
+insert into playlists values ('home', '01-30-2013');
+insert into playlists values ('list3', '09-30-2013');
+
+insert into pl_tr values ('home', 21);
+insert into pl_tr values ('home', 22);
+insert into pl_tr values ('home', 23);
+insert into pl_tr values ('home', 24);
+insert into pl_tr values ('home', 25);
+insert into pl_tr values ('home', 26);
+insert into pl_tr values ('home', 27);
+insert into pl_tr values ('home', 32);
+insert into pl_tr values ('home', 33);
+insert into pl_tr values ('home', 34);
+insert into pl_tr values ('list1', 1);
+insert into pl_tr values ('list1', 2);
+insert into pl_tr values ('list2', 3);
+insert into pl_tr values ('list2', 4);
+insert into pl_tr values ('list2', 5);
+insert into pl_tr values ('mp3', 35);
+insert into pl_tr values ('mp3', 36);
+insert into pl_tr values ('mp3', 37);
+insert into pl_tr values ('mp3', 38);
+insert into pl_tr values ('mp3', 50);
+insert into pl_tr values ('mp3', 51);
+insert into pl_tr values ('mp3', 52);
