@@ -1,0 +1,42 @@
+create or alter procedure P1
+as
+begin
+  insert into artists values (5, 'Edge of Sanity');
+  insert into cds values (714679272, 1996, 600000, 1);
+  insert into studios values (5, ' Cutting Room', 'Sweden');
+  insert into albums values (6, 'Crimson', 1996, 'Black Mark Production', 5, 18, 5, 'album', 1);
+  insert into cds_alb values (714679272, 6);
+  insert into art_alb values (5, 6);
+  insert into tracks values (13, 'Crimson', '00:40:00');
+  insert into tracklists values (6, 13);
+  insert into playlists values ('list4', '12-15-2014');
+  insert into pl_tr values ('list4', 13);
+end
+
+create or alter procedure P2
+as
+begin
+  update cds set sold = 1700000 where code = 105520746;
+end
+
+create or alter procedure P3
+as
+begin
+  delete from tracks where tr_id in (select max(tr_id) from tracks);
+end
+
+create or alter procedure P4
+as
+begin
+  delete from genres where genres.genre not in (select genres.genre from albums, genres where albums.genre = genres.gen_id);
+end
+
+create or alter procedure P5
+as
+begin
+  delete from pl_tr where pl_tr.name in
+  (select playlists.name from playlists, pl_tr where playlists.name = pl_tr.name
+  group by playlists.name having count(pl_tr.name) < 5);
+
+  delete from playlists where playlists.name not in (select pl_tr.name from pl_tr);
+end

@@ -1,0 +1,47 @@
+create view t1_1 as select * from artists;
+create view t1_2 as select * from cds_alb;
+create view t1_3 as select * from cds;
+create view t1_4 as select * from albums;
+create view t1_5 as select * from studios;
+create view t1_6 as select * from playlists;
+create view t1_7 as select * from pl_tr;
+create view t1_8 as select * from tracks;
+create view t1_9 as select * from tracklists;
+
+create view t2_1 as select * from tracks where duration
+between '00:03:30' and '00:04:00';
+create view t2_2 as select * from albums where rating in (3, 4);
+create view t2_3 as select * from tracks where title like '%Blood';
+
+create view t3_1 (string, album, release_year) 
+as select 'title and year:', album, release_year from albums
+where num_of_rat > (200/5);
+
+create view t4_1 as select * from albums order by release_year desc, album asc;
+
+create view t5_1 (string, sold) as select 'all sold copy:', sum(sold) from cds;
+create view t5_2 (string, cnt) as select 'number of all tracks', count (*) from tracks;
+
+create view t6_1 (album, studio) as select albums.album, studios.title from albums, studios
+where albums.st_id = studios.st_id;
+create view t6_2 (artist, album) as select artists.artist, albums.album from artists, albums, art_alb
+where art_alb.art_id = artists.art_id and art_alb.alb_id = albums.alb_id;
+
+create view t7_1 (studio, cnt) as select studios.title, count(albums.album) from studios, albums
+where studios.st_id = albums.st_id group by title;
+create view t7_2 (studio, cnt) as select studios.title, count(albums.album) from studios, albums
+where studios.st_id = albums.st_id group by title having count(*) > 1;
+
+create view t8_1 as select albums.album from albums where genre in 
+(select gen_id from genres where genre = 'Rock');
+
+create view t9 (tracks, cnt) as
+select first 10 tracks.title, count(pl_tr.tr_id) as cnt_track from tracks, pl_tr
+where pl_tr.tr_id = tracks.tr_id group by tracks.title order by cnt_track desc;
+
+create view t10 as
+select first 5 artists.artist from artists, cds, cds_alb, albums, art_alb, statuses
+where cds.status in (1, 2, 3) and artists.art_id = art_alb.art_id and
+art_alb.alb_id = albums.alb_id and cds_alb.alb_id = albums.alb_id and
+cds_alb.code = cds.code and cds.status = statuses.stat_id
+group by artists.artist order by count(*) desc;
