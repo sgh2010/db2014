@@ -1,0 +1,45 @@
+CREATE SEQUENCE ART_SEQ RESTART WITH 5
+
+CREATE OR ALTER trig1 artists_bi0 for artists
+active before insert position 0
+AS
+begin
+  if(new.art_id is null) then
+  new.art_id = next value for art_seq;
+end
+
+CREATE OR ALTER trigger trig2 for playlists
+active before update or delete position 0
+AS
+begin
+  if(deleting)
+  then delete from pl_tr where pl_tr.name = old.name;
+  else update pl_tr set pl_tr.name = new.name where pl_tr.name = old.name;
+end
+
+CREATE OR ALTER trigger trig3 for cds
+active after update position 0
+AS
+begin
+  if(new.sold > old.sold)
+  then begin
+         if(new.sold >= 10000000)
+            then execute procedure for_trig(1, new.code);
+    end
+end
+
+create or alter procedure FOR_TRIG (
+    VAL integer not null,
+    CODE type of column CDS.CODE not null)
+as
+begin
+  if((select rating from albums, cds_alb, cds
+        where albums.alb_id = cds_alb.alb_id and
+        cds_alb.code = cds.code and cds.code = :code) <= (5 - :val))
+  then begin
+        update albums set albums.rating = (albums.rating + :val)
+        where albums.alb_id = (select albums.alb_id from
+        albums,  cds_alb,  cds where albums.alb_id = cds_alb.alb_id and
+        cds_alb.code = cds.code and cds.code = :code);
+        end
+end
